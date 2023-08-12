@@ -1,0 +1,31 @@
+.header {
+    .header-img {
+        width: 100%;
+    }
+
+    .title-input-area {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+
+        .page-tittle {
+            color: white;
+            text-align: center;
+        }
+        
+        .search-ip-area {
+            display: flex;
+            justify-content: center;
+
+            .ip-input {
+                width: 500px;
+    
+                input {
+                    height: 45px;
+                }
+            }
+        }
+    }
+}
