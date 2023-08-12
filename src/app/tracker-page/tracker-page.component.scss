@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 .header {
     .header-img {
         width: 100%;
@@ -24,6 +26,44 @@
     
                 input {
                     height: 45px;
+                }
+            }
+        }
+
+        .location-ip-data {
+            display: flex;
+            justify-content: center;
+
+            .card-ip-data {
+                width: 80%;
+                background-color: white;
+                border-radius:15px;
+
+                .card-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .ip-data {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 150px;
+                        width: 24%;
+
+                        .data-title {
+                            color: $dark-gray;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .separator {
+                        height: 70px;
+                        width: 0px;
+                        padding: 0px;
+                        border: solid 1px $dark-gray;
+                    }
                 }
             }
         }
