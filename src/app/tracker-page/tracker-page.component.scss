@@ -1,6 +1,6 @@
 @import '../../styles.scss';
 
-.header {
+.container-content {
     .header-img {
         width: 100%;
     }
@@ -16,14 +16,14 @@
             color: white;
             text-align: center;
         }
-        
+
         .search-ip-area {
             display: flex;
             justify-content: center;
 
             .ip-input {
                 width: 500px;
-    
+
                 input {
                     height: 45px;
                 }
@@ -33,11 +33,13 @@
         .location-ip-data {
             display: flex;
             justify-content: center;
+            margin-top: 120px;
 
             .card-ip-data {
                 width: 80%;
                 background-color: white;
-                border-radius:15px;
+                border-radius: 15px;
+                border: 1px solid;
 
                 .card-content {
                     display: flex;
@@ -67,5 +69,14 @@
                 }
             }
         }
+    }
+}
+
+.map-area {
+    position: relative;
+    z-index: -1;
+
+    #map {
+        height: 100vh;
     }
 }
