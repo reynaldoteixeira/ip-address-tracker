@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from "@angular/core";
 import * as L from 'leaflet';
+import { IpAddressService } from "../services/ipAdress.service";
 
 @Component({
   selector: 'app-track-page',
@@ -8,12 +9,15 @@ import * as L from 'leaflet';
 })
 export class TrackerPageComponent implements OnInit, AfterViewInit {
   private map!: L.Map
-
-  markers: L.Marker[] = [
+  public markers: L.Marker[] = [
     L.marker([-23.533773, -46.625290]), // SP
   ];
 
-  constructor() { }
+  public ipAddressTyped:string = '';
+
+  constructor(
+    private ipAddressService: IpAddressService
+  ) { }
 
   ngOnInit(): void {
     this.initializeMap();
@@ -38,5 +42,16 @@ export class TrackerPageComponent implements OnInit, AfterViewInit {
   private centerMap() {
     const bounds = L.latLngBounds(this.markers.map(marker => marker.getLatLng()));
     this.map.fitBounds(bounds);
+  }
+
+  setIpAddress(event) {
+    this.ipAddressTyped = event.target.value;
+  }
+
+  getIpAddress() {
+    this.ipAddressService.getIpAddress(this.ipAddressTyped).subscribe(addressResponse => {
+      this.map.setView([addressResponse['location'].lat, addressResponse['location'].lng]);
+      L.marker(L.latLng(addressResponse['location'].lat, addressResponse['location'].lng)).addTo(this.map);
+    });
   }
 }
