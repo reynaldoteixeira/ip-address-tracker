@@ -16,5 +16,11 @@
       "es2018",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "types": [
+    "node"
+  ]
 }
