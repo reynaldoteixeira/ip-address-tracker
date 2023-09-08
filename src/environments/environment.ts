@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ipGeoApiKey: ""
+  ipGeoApiKey: process.env.ipGeoApiKey
 };
 
 /*
